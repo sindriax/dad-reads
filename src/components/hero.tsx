@@ -1,4 +1,3 @@
-// app/components/Hero.tsx
 export default function Hero() {
   return (
     <section className="py-12 text-center">

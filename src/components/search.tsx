@@ -55,7 +55,6 @@ export default function SearchSection() {
 
   const handleSearch = () => {
     console.log("Searching for:", query, "by:", searchType);
-    // Additional search logic can be added here if needed.
   };
 
   return (
