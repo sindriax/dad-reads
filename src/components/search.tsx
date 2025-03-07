@@ -62,37 +62,37 @@ export default function SearchSection() {
       <h2 className="text-2xl font-semibold mb-4 text-gray-800">
         Search Books
       </h2>
-      <div className="flex items-center justify-center gap-2">
-        <select
-          value={searchType}
-          onChange={(e) => setSearchType(e.target.value)}
-          className="border p-2 rounded"
-        >
-          <option value="all">All</option>
-          <option value="author">Author</option>
-          <option value="title">Title</option>
-        </select>
-        <input
-          type="text"
-          placeholder="Search for books..."
-          className="border p-2 rounded w-64"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onFocus={() => {
-            if (results.length > 0) setDropdownOpen(true);
-          }}
-          onBlur={() => setTimeout(() => setDropdownOpen(false), 200)}
-        />
-        <button
-          onClick={handleSearch}
-          className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
-        >
-          Search
-        </button>
-      </div>
-      {dropdownOpen && results.length > 0 && (
-        <div className="relative">
-          <div className="absolute top-full left-0 right-0 bg-white border mt-1 rounded shadow z-10">
+      <div className="relative flex flex-col items-center">
+        <div className="flex items-center justify-center gap-2">
+          <select
+            value={searchType}
+            onChange={(e) => setSearchType(e.target.value)}
+            className="border p-2 rounded"
+          >
+            <option value="all">All</option>
+            <option value="author">Author</option>
+            <option value="title">Title</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Search for books..."
+            className="border p-2 rounded w-64"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onFocus={() => {
+              if (results.length > 0) setDropdownOpen(true);
+            }}
+            onBlur={() => setTimeout(() => setDropdownOpen(false), 200)}
+          />
+          <button
+            onClick={handleSearch}
+            className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+          >
+            Search
+          </button>
+        </div>
+        {dropdownOpen && results.length > 0 && (
+          <div className="absolute top-full mt-1 w-96 max-w-full bg-white border rounded shadow z-10">
             {results.map((book) => {
               const workId = book.key.split("/")[2];
               return (
@@ -111,10 +111,12 @@ export default function SearchSection() {
                         <span>No Img</span>
                       </div>
                     )}
-                    <div>
-                      <p className="text-sm font-semibold">{book.title}</p>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-semibold truncate">
+                        {book.title}
+                      </p>
                       {book.author_name && (
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-gray-500 truncate">
                           {book.author_name.join(", ")}
                         </p>
                       )}
@@ -124,8 +126,8 @@ export default function SearchSection() {
               );
             })}
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   );
 }
