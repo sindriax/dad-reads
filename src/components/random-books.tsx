@@ -13,7 +13,8 @@ export default function RandomBooks() {
     async function loadBooks() {
       try {
         const randomBooks = await getRandomBooks();
-        setBooks(randomBooks);
+        const filteredBooks = randomBooks.filter((book) => book.cover_i);
+        setBooks(filteredBooks);
       } catch (err: unknown) {
         if (err instanceof Error) {
           setError(err.message);
@@ -36,21 +37,15 @@ export default function RandomBooks() {
         const workId = book.key.split("/")[2];
         return (
           <Link key={book.key} href={`/book/${workId}`}>
-            <div className="bg-white p-4 rounded shadow cursor-pointer">
-              {book.cover_i ? (
-                <Image
-                  src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
-                  alt={`Cover for ${book.title}`}
-                  width={300}
-                  height={256}
-                  className="w-full h-64 object-cover mb-2"
-                />
-              ) : (
-                <div className="w-full h-64 bg-gray-200 flex items-center justify-center mb-2">
-                  <span>No Image</span>
-                </div>
-              )}
-              <h3 className="text-center text-lg font-semibold">
+            <div className="bg-white p-4 rounded shadow cursor-pointer flex flex-col h-80">
+              <Image
+                src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
+                alt={`Cover for ${book.title}`}
+                width={300}
+                height={256}
+                className="w-full h-64 object-cover mb-2"
+              />
+              <h3 className="text-center text-lg font-semibold line-clamp-2 overflow-ellipsis overflow-hidden">
                 {book.title}
               </h3>
             </div>
