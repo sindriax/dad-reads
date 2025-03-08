@@ -26,8 +26,8 @@ const kindleAccessories = [
 export default function AccessoriesSection() {
   return (
     <section className="w-3/5 mx-auto py-8">
-      <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-        Latest Kindle Accessories
+      <h2 className="text-2xl font-semibold mb-4 text-gray-700">
+        Últimos Accesorios para Kindle
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {kindleAccessories.map((accessory, index) => (
@@ -36,7 +36,7 @@ export default function AccessoriesSection() {
             href={accessory.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white border rounded p-4 hover:shadow-lg transition"
+            className="bg-white border-gray-200 border rounded p-4 hover:shadow-lg transition"
           >
             <Image
               src={accessory.image}

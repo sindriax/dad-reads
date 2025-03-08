@@ -60,13 +60,12 @@ export default function SearchSection() {
 
   return (
     <section className="mb-8 text-center">
-      <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+      <h2 className="text-2xl font-semibold mb-4 text-gray-700">
         Buscar Libros
       </h2>
 
       <div className="relative flex flex-col items-center">
         <div className="flex items-center gap-2">
-          {/* Dropdown without "v" icon */}
           <select
             value={searchType}
             onChange={(e) => setSearchType(e.target.value)}
@@ -78,7 +77,6 @@ export default function SearchSection() {
             <option value="title">Título</option>
           </select>
 
-          {/* Search Input with Icon */}
           <div className="relative flex items-center">
             <input
               type="text"
@@ -101,8 +99,8 @@ export default function SearchSection() {
 
           <button
             onClick={handleSearch}
-            className="h-10 px-3 border border-gray-300 rounded-md bg-white text-gray-700 
-                       hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-gray-300"
+            className="h-10 px-3 border border-gray-300 rounded-md bg-gray-100 text-gray-700 
+                       hover:bg-[#8AAC92] focus:outline-none focus:ring-1 focus:ring-gray-300"
           >
             Buscar
           </button>
