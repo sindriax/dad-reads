@@ -6,8 +6,8 @@ export default function AnnouncementBanner() {
   return (
     <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white py-4 px-6 rounded-md mx-4 my-4 shadow-lg text-center flex items-center justify-center gap-2">
       <p className="text-xl font-bold">
-        ¡Felicidades! Eres el primer visitante de esta página y has ganado una
-        de tus trilogías favoritas.
+        🎉 ¡Enhorabuena! Como primer visitante, has ganado una de nuestras
+        famosas trilogías.
       </p>
       <Gift className="h-6 w-6" style={{ animation: "shake 0.5s infinite" }} />
       <style jsx>{`
